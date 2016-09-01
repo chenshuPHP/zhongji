@@ -1,0 +1,61 @@
+
+<table>
+    <?php foreach($attr_list as $rows)
+
+			if($rows['attr_type'] == 0)  //属性为唯一属性
+			{
+				if ($rows['attr_input_type'] == 0) 
+				{
+					echo '<tr><td>'.$rows['attr_name'].'</td><td><input type="text" name="attr[' . $rows['attr_id'] . ']"></td></tr>';
+				} else {
+                    // 输入值得方式是列表选择
+                    $attr = $rows['attr_value']; //取出可选列表的值
+                    //降中文都好转化成英文的
+                    $attr = str_replace(',','，', $attr);
+                    //吧字符串转化成数组
+                    $attr = explode(',',$attr);
+                    echo '<tr><td>'.$rows['attr_name'].'</td>';
+                    echo '<td><select name="attr['.$rows['attr_id'].']">';
+                    foreach($attr as $k=>$v) {
+                        echo "<option value='$v'>".$v."</option>";
+                     
+                    }
+                    echo "</select></td></tr>";
+                   
+                }
+			} else {      //单选属性
+                if($rows['attr_input_type'] == 0)
+                {
+                    echo '<tr><td>' . $rows['attr_name'] . '</td><td>';
+                    echo '<input type="text" name="attr[' . $rows['attr_id'] . ']"/><input type="button" value="添加" onclick="dup(this)"></td></tr>';
+                } else {
+                    echo '<tr><td>'. $rows['attr_name'] . '</td><td>';
+                    //获取属性的值
+                    $attr = $rows['attr_value'];
+                    //把属性的值字符串的都好替换成英文下的逗号
+                    $attr = str_replace('，',',',$attr);
+                    //把字符串装换成数组
+                    $attr = explode(',',$attr);
+                    echo '<select name="attr[' . $rows['attr_id'] . '][]">';
+                    foreach($attr as $value)
+                    {
+                        echo '<option value="' . $value . '"> ' . $value . '</option>';
+                    }
+                    echo '</select><input type="button" value="添加" onclick="dup(this)">';
+                }
+            } 
+    	?>
+
+    </table>
+<script>
+    function dup(obj) {
+        var butt = $(obj).parent().parent();
+       if(obj.value=='添加') {
+           var bu = butt.clone();
+           bu.find(':button').val('删除');
+           butt.after(bu);
+       } else {
+           $(obj).parent().parent().remove();
+       }
+    }
+</script>

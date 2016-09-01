@@ -1,0 +1,63 @@
+<layout name="main" />
+
+<div class="tab-div">
+    <div id="tabbar-div">
+        <p>
+            <span class="tab-front" id="general-tab">通用信息</span>
+        </p>
+    </div>
+    <div id="tabbody-div">
+        <form enctype="multipart/form-data" action="__SELF__" method="post">
+            <table width="90%" id="general-table" align="center">
+                <tr>
+                    <td class="label">商品名称：</td>
+                    <td><input type="text" name="goods_name" value=""size="30" />
+                    <span class="require-field">*</span></td>
+                </tr>
+                <tr>
+                    <td class="label">本店售价：</td>
+                    <td>
+                        <input type="text" name="goods_price" value="0" size="20" id="goods_price"/>
+                        <span class="require-field">*</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">是否上架：</td>
+                    <td>
+                        <input type="radio" name="is_sale" value="1"/> 是
+                        <input type="radio" name="is_sale" value="0"/> 否
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">市场售价：</td>
+                    <td>
+                        <input type="text" name="market_price" value="0" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">上传logo</td>
+                    <td>
+                        <input type="file" name="goods_img" value="0" size="20" id="goods_img" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">商品简单描述：</td>
+                    <td>
+                        
+						<textarea id="goods_desc" name="goods_desc" cols="40" rows="3"></textarea>
+                    </td>
+                </tr>
+            </table>
+            <div class="button-div">
+                <input type="submit" value=" 确定 " class="button"/>
+                <input type="reset" value=" 重置 " class="button" />
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+     var um=UM.getEditor('goods_desc',{
+        initialFrameWidth:"100%"
+    });
+    
+</script>
