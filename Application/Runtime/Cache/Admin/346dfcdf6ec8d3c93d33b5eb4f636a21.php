@@ -40,7 +40,7 @@ $(function(){
 
 function charea(a) {
     var spans = ['general','detail','mix','attr','album'];
-    for(i=0;i<5;i++) {
+    for(i=0;i < 5;i++) {
         var o = document.getElementById(spans[i]+'-tab');
         var tb = document.getElementById(spans[i]+'-table');
         o.className = o.id==a+'-tab'?'tab-front':'tab-back';
@@ -141,8 +141,12 @@ function charea(a) {
             <td><input type="text" name="goods_number" value="1" size="20" />
           </tr>
                     <tr>
-            <td class="label">加入推荐：</td>
-            <td><input type="checkbox" name="is_best" value="1"  />精品 <input type="checkbox" name="is_new" value="1"  />新品 <input type="checkbox" name="is_hot" value="1"  />热销</td>
+                        <td class="label">加入推荐：</td>
+                        <td>
+                            <input type="checkbox" name="is_best" value="1"  />精品
+                            <input type="checkbox" name="is_new" value="1"  />新品
+                            <input type="checkbox" name="is_hot" value="1"  />热销
+                        </td>
           </tr>
           <tr id="alone_sale_1">
             <td class="label" id="alone_sale_2">上架：</td>
@@ -165,8 +169,9 @@ function charea(a) {
           <!-- 商品相册 -->
         <table width="90%" id="album-table" style="display:none">
           <tr>
-            <td><a href="javascript:"  onclick="copyimg(this)">[+]</a>上传文件：</td>
-            <td><input type="file" name="photo[]"/></td>
+            <td>上传文件：</td>
+            <td><input type="file" name="photo[]"></td>
+              <td><input type="button" onclick="tianjia(this)" value="添加"></td>
           </tr>
         </table>
   
@@ -196,6 +201,18 @@ function charea(a) {
 					}
 			});
 		}
+    //添加相册
+    function tianjia(obj) {
+        var ce = $(obj).parent().parent();
+        if(obj.value=='添加') {
+            var but = ce.clone();
+            but.find(':button').val('删除');
+            ce.after(but)
+
+        } else {
+            ce.remove(but);
+        }
+    }
 </script>
 
 <script>

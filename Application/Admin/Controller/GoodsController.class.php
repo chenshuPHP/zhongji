@@ -35,28 +35,23 @@
 
             if(IS_POST)
             {
-                $model = D('goods');
 
+                $model = D('goods');
                 if($model -> create(I('post.'),1))
                 {
-                    $goods_sn = I('post.goods_sn');
-                    if(empty($goods_sn))
-                    {
-                        $model -> goods_sn = 'sn_'.time().uniqid();
-                    }
-                    $model -> add_time = time();
-
                     if( $model->add())
                     {
 
-                        $this -> success('添加成功',U('lst'));
+                        $this -> success('添加成功',U('lst'));exit;
                     }
                 } else
-                    $this -> error($model->getError());
-                exit;
+                    $error = $model->getError();
+                    if(empty($error)) {
+                        $error = '添加失败';
+                    }
+                $this -> error($error);
+
             }
-
-
             $type_list = D('attrtype') -> select();
             $cat_list = getTree('Category');
             $brand_list = D('Brand') -> select();

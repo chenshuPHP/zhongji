@@ -1,4 +1,5 @@
 <?php
+
 //自定义过滤XXS攻击函数
 function clearXSS($data)
 {
@@ -129,6 +130,28 @@ function delImages($path)
             );
         }
     }
-function aa() {
-    var_dump(1111);exit;
-}
+
+        /**\
+         * print_r 打印数据
+         * @param $data  需要打印的数据
+         */
+        function p($data)
+        {
+            echo '<pre>';
+            print_r($data);
+            exit;
+        }
+        /**
+         * 判断是否上传了相册
+         * @return boolean true|flase
+         */
+        function isPhoto($data)
+        {
+            foreach($data as $rows)
+            {
+                if($rows['error'] == 0) {
+                    return true;
+                }
+            }
+            return false;
+        }
