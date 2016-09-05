@@ -5,7 +5,8 @@
     /**
      * 商品类别控制器
      */
-    class AttrtypeController extends Controller{
+    class AttrtypeController extends BaseController
+    {
         /**
          * 显示商品类型
          */

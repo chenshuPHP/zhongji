@@ -5,7 +5,7 @@
     /**
      * 商品品牌控制器
      */
-    class BrandController extends Controller
+    class BrandController extends BaseController
     {
         /**
          * 显示品牌列表

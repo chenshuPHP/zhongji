@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<select id="sheng">
+    <foreach name="sheng" item='sheng'>
+        <option value="{$sheng['id']}">{$sheng['name']}</option>
+    </foreach>
+</select>
+<script src="/Public/JS/jquery-1.7.2.js"></script>
+    <script>
+        $("#sheng").change( function() {
+            // 这里可以写些验证代码
+        });
+    </script>
+</body>
+</html>

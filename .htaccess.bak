@@ -7,4 +7,5 @@
   RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
   
 </IfModule>
- 
+ RewriteEngine On
+ RewriteRule index.html index.php

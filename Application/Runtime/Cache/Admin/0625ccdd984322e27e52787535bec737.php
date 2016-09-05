@@ -3,8 +3,8 @@
 <head>
     <title>ECSHOP 管理中心 - 添加新商品 </title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="/Public/Admin/Styles/general.css" rel="stylesheet" type="text/css" />
-    <link href="/Public/Admin/Styles/main.css" rel="stylesheet" type="text/css" />
+    <link href="/Application/Admin/Public/Styles/general.css" rel="stylesheet" type="text/css" />
+    <link href="/Application/Admin/Public/Styles/main.css" rel="stylesheet" type="text/css" />
      <!--//  引入百度编辑器-->
     <script src="/Public/Js/jquery-1.11.3.min.js"></script> 
     
@@ -30,7 +30,7 @@
         </p>
     </div>
     <div id="tabbody-div">
-        <form enctype="multipart/form-data" action="/index.php/Admin/Goods/goodsAdd.html" method="post">
+        <form enctype="multipart/form-data" action="/index.php/Admin/Goods/goodsAdd" method="post">
             <table width="90%" id="general-table" align="center">
                 <tr>
                     <td class="label">商品名称：</td>

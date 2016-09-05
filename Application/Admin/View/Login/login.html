@@ -3,8 +3,8 @@
 <head>
 <title>ECSHOP 管理中心</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="__PUBLIC__/Styles/general.css" rel="stylesheet" type="text/css" />
-<link href="__PUBLIC__/Styles/main.css" rel="stylesheet" type="text/css" />
+<link href="/Application/Admin/Public/Styles/general.css" rel="stylesheet" type="text/css" />
+<link href="/Application/Admin/Public/Styles/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body style="background: #278296;color:white">
 <form method="post" action=""onsubmit="return validate()">
@@ -18,13 +18,13 @@
                     <tr>
                         <td>管理员姓名：</td>
                         <td>
-                            <input type="text" name="username" />
+                            <input type="text" name="admin_name" />
                         </td>
                     </tr>
                     <tr>
                         <td>管理员密码：</td>
                         <td>
-                            <input type="password" name="password" />
+                            <input type="password" name="admin_password" />
                         </td>
                     </tr>
                     <tr>
@@ -35,7 +35,7 @@
                     </tr>
                     <tr>
                         <td colspan="2" align="right">
-                            <img src="" />
+                            <img src="__URL__/ver" onclick="this.src='__URL__/ver/'+Math.random()" />
                         </td>
                     </tr>
                     <tr>

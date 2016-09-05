@@ -76,3 +76,37 @@ album_ori varchar(80) not null default '' comment '相册的原图地址',
 album_thumb varchar(80) not null default '' comment '相册缩略图'
 )engine=myisam charset=utf8
 
+-- 权限表
+create table authority(
+auth_id smallint unsigned primary key auto_increment comment '权限id',
+auth_name varchar(30) not null comment '权限名称',
+parent_id smallint unsigned not null default 0 comment '父级id',
+module_name varchar(32) not null default '' comment '该权限对应的模块名称',
+controller_name varchar(32) not null default '' comment '该权限对应的方法名'
+)engine myisam charset utf8;
+
+-- 角色表
+create table shop_role(
+role_id smallint primary key auto_increment comment '角色id',
+role_name varchar(32) not null comment '角色名称'
+)engine myisam charset utf8 comment '角色表'
+
+-- 角色和权限的关系表
+create table role_authority(
+role_id smallint unsigned not null comment '角色id',
+auth_id smallint unsigned not null comment '权限id'
+)engine myisam charset utf8 comment '角色与权限的关系表'
+
+-- 管理员表
+create table shop_admin(
+admin_id smallint unsigned primary key auto_increment comment '管理员id',
+admin_name varchar(32) not null comment '管理员名称',
+admin_password char(32) not null comment '管理员密码',
+admin_salt varchar(6) not null comment '管理员的密钥'
+)engine myisam charset utf8 comment '管理员表';
+
+-- 管理员和角色关系表
+create table shop_admin_role(
+admin_id smallint unsigned not null comment '管理员id',
+role_id smallint unsigned not null comment '角色的id'
+)engine myisam charset utf8

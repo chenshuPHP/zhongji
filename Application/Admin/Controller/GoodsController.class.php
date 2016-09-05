@@ -5,7 +5,7 @@
     /**
      * 商品控制器
      */
-    class GoodsController extends Controller
+    class GoodsController extends BaseController
     {
         /**
          * 显示商品列表

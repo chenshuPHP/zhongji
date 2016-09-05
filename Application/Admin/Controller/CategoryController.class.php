@@ -5,7 +5,7 @@
     /**
      * 栏目控制器
      */
-    class CategoryController extends Controller
+    class CategoryController extends BaseController
     {
         /**
          * 显示栏目列表

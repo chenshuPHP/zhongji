@@ -5,7 +5,7 @@
     /**
      * 商品属性表
      */
-    class AttributeController extends Controller
+    class AttributeController extends BaseController
     {
         /**
          * 显示商品列表

@@ -28,10 +28,11 @@ function delImages($path)
      * @param $parent_id  父级id
      * @return array      树形结构数组
      */
-     function getTree($table) {
+     function getTree($table,$id) {
         $arr = M($table) -> select();
 
-        return createTree($arr,$parent_id=0,$deel=0);
+
+        return createTree($arr,$parent_id=0,$deel=0,$id);
     }
     /**
      * @param $arr          数组
@@ -39,7 +40,7 @@ function delImages($path)
      * @param $deel         深度
      * @return array        树形数组
      */
-     function createTree($arr,$parent_id,$deel)
+     function createTree($arr,$parent_id,$deel,$field)
     {
         static $tree = array();
 
@@ -49,7 +50,7 @@ function delImages($path)
             {
                 $value['deel'] = $deel;
                 $tree[] = $value;
-                createTree($arr,$value['cat_id'],$deel+1);
+                createTree($arr,$value[$field],$deel+1);
             }
         }
 
